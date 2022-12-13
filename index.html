@@ -29,8 +29,12 @@
 
 
     navigator.geolocation.getCurrentPosition(function (location) {
+        // x.innerHTML = `<a-scene embedded artoolkit='sourceType: webcam;' vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true;">
+        //     <a-sphere gps-place="longitude: <${location.coords.latitude}>; longitude: <${location.coords.longitude}>;"></a-sphere>
+        //     <a-camera gps-camera rotation-reader user-height="1.6"> </a-camera>
+        // </a-scene>`;
         x.innerHTML = `<a-scene embedded artoolkit='sourceType: webcam;' vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true;">
-            <a-sphere gps-place="longitude: <${location.coords.latitude}>; longitude: <${location.coords.longitude}>;"></a-sphere>
+            <a-sphere gps-place="longitude: <12.9895>; longitude: <77.6655>;"></a-sphere>
             <a-camera gps-camera rotation-reader user-height="1.6"> </a-camera>
         </a-scene>`;
     }, error, options);
