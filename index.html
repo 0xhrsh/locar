@@ -11,11 +11,25 @@
 </head>
 
 <body>
-    <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
-        <a-text value="This content will always face you." look-at="[gps-camera]" scale="120 120 120"
-            gps-entity-place="latitude: <12.9894>; longitude: <77.6655>;"></a-text>
-        <a-camera gps-camera rotation-reader> </a-camera>
-    </a-scene>
+    <div id="ar"></div>
+
 </body>
+
+<script>
+    var x = document.getElementById("ar");
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (location) {
+            x.innerHTML = `<a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+        <a-text value="This content will always face you." look-at="[gps-camera]" scale="120 120 120"
+            gps-entity-place="latitude: <${location.coords.latitude}>; longitude: <${location.coords.longitude}>;"></a-text>
+        <a-camera gps-camera rotation-reader> </a-camera>
+    </a-scene>`;
+        });
+
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+</script>
 
 </html>
