@@ -20,7 +20,7 @@
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (location) {
-            x.innerHTML = `<a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+            x.innerHTML = `<a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true;">
         <a-text value="This content will always face you." look-at="[gps-camera]" scale="120 120 120"
             gps-entity-place="latitude: <${location.coords.latitude}>; longitude: <${location.coords.longitude}>;"></a-text>
         <a-camera gps-camera rotation-reader> </a-camera>
